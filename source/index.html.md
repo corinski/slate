@@ -14,79 +14,46 @@ includes:
 search: true
 ---
 
-# Introduction
+# Oracle APIs
 
-This is the API documentation for Arbiter, Oracle ...
+This is the API documentation for Oracle
 
-# Authentication
-
-> To authorize, use this code:
+## Post a new order from user
 
 ```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> passed in parameters are userOrderDetailsObject(signed) and arbiterOrderDetailsObject(signed)
 
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "pubkey": "??",
+    "expiration": "??",
+    "pair": "??",
+    "amountIn": "??",
+    "rate": "??",
+    "returnAddress": "??",
+     "withdrawalAddress": "??",
+     "signature": "??"
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "orderID": "??",
+    "arbiterPubKey": "??",
+    "encDerivationPath": "??",
+    "multiSigAddr": "??"
+  }
+]
+```
+
+> outputs:
+
+```json
+[
+  {
+    "oraclePubkey": "??",
+    "oracleMultisigAddress": "??",
   }
 ]
 ```
