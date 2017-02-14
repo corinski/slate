@@ -1,9 +1,6 @@
 ---
 title: API Reference
 
-language_tabs:
-  - javascript
-
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
@@ -18,13 +15,9 @@ search: true
 
 This is the API documentation for Oracle
 
-## Post a new order from user
+## Post a new order
 
-```javascript
-
-```
-
-> passed in parameters are userOrderDetailsObject(signed) and arbiterOrderDetailsObject(signed)
+> inputs: userOrderDetailsObject(signed) and arbiterOrderDetailsObject(signed)
 
 ```json
 [
@@ -35,8 +28,8 @@ This is the API documentation for Oracle
     "amountIn": "??",
     "rate": "??",
     "returnAddress": "??",
-     "withdrawalAddress": "??",
-     "signature": "??"
+    "withdrawalAddress": "??",
+    "signature": "??"
   },
   {
     "orderID": "??",
@@ -50,82 +43,127 @@ This is the API documentation for Oracle
 > outputs:
 
 ```json
-[
-  {
+{
     "oraclePubkey": "??",
     "oracleMultisigAddress": "??",
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+User hits this endpoint.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST '/api/v1/newOrder'`
+
+### Passed-in Parameters
+
+Parameter | Description
+--------- | -----------
+userOrderDetailsObject |
+arbiterOrderDetailsObject  |
+
+
+## Get transaction for when bitcoin client sees deposit
+
+> input: ??
+
+```json
+{
+    "??": "??"
+}
+```
+
+> outputs: ??
+
+```json
+{
+    "??": "??"
+}
+```
+
+
+This endpoint retrieves transaction details
+
+
+### HTTP Request
+
+`POST 'api/v1/received'`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+?? | ??
 
+
+## Post a fulfilled order
+
+> inputs:
+
+```json
+{
+  "orderId": "",
+  "tx": "",
+  "inputs": ""
+}
+```
+
+> outputs:
+
+```json
+{
+    "oraclePubkey": "??",
+    "oracleMultisigAddress": "??",
+}
+```
+
+
+Arbiter sends this request for Oracle for co-sign request
+
+
+### HTTP Request
+
+`POST 'api/v1/fulfillOrder'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | orderId
+tx | partially signed tx
+inputs | array of matched orders' orderIds
+
+
+## Post a returned order
+
+> inputs:
+
+```json
+{
+  "orderId": "",
+  "tx": ""
+}
+```
+
+> outputs: signed tx
+
+```json
+{
+    "tx": "??",
+}
+```
+
+
+Arbiter sends this request for Oracle for co-sign request
+
+
+### HTTP Request
+
+`POST 'api/v1/returnedOrder'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | orderId
+tx | partially signed tx
