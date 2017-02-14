@@ -104,17 +104,21 @@ Parameter | Description
 ```json
 {
   "orderId": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
-  "tx": "010000000175e1769813db8418fea17576694af1ff31cb2b512\
-                      b7333e6eb42f030d0d7787200000000b5004830450221008d5e\
-                      c57d362ff6ef6602e4e756ef1bdeee12bd5c5c72697ef1455b3\
-                      79c90531002202ef3ea04dfbeda043395e5bc701e4878c15baa\
-                      b9c6ba5808eb3d04c91f641a0c014c69522103310188e911026\
-                      cf18c3ce274e0ebb5f95b007f230d8cb7d09879d96dbeab1aff\
-                      210243930746e6ed6552e03359db521b088134652905bd2d154\
-                      1fa9124303a41e95621029e03a901b85534ff1e92c43c74431f\
-                      7ce72046060fcf7a95c37e148f78c7725553aeffffffff01c0b\
-                      c973b000000001976a914b6f64f5bf3e38f25ead28817df7929\
-                      c06fe847ee88ac00000000",
+  "tx": {
+        "txid": '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
+         'hash': '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
+         "size": 223,
+         "vsize": 223,
+         "version": 1,
+         "locktime": 1088130,
+         "vin":
+             [ { txid: '79f8d0bc26605a9bc7dc59b2ce43c290947e33120fca6b3e946588086d26276f',
+                 vout: 1,
+                 scriptSig: [Object],
+                 sequence: 4294967294 } ],
+                 vout:
+             [ { value: 40000, n: 0, scriptPubKey: [Object] },
+                 { value: 249337401, n: 1, scriptPubKey: [Object] } ]",
   "inputs": "[c7d856f6-ceb8-4e23-aae0-9905e3036927, a7d856f6-ceb8-4e23-aae0-9905e3036927, b7d856f6-ceb8-4e23-aae0-9905e3036927]"
 }
 ```
@@ -152,17 +156,21 @@ inputs | array of matched orders' orderIds
 ```json
 {
   "orderId": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
-  "tx": "010000000175e1769813db8418fea17576694af1ff31cb2b512\
-                               b7333e6eb42f030d0d7787200000000b5004830450221008d5e\
-                               c57d362ff6ef6602e4e756ef1bdeee12bd5c5c72697ef1455b3\
-                               79c90531002202ef3ea04dfbeda043395e5bc701e4878c15baa\
-                               b9c6ba5808eb3d04c91f641a0c014c69522103310188e911026\
-                               cf18c3ce274e0ebb5f95b007f230d8cb7d09879d96dbeab1aff\
-                               210243930746e6ed6552e03359db521b088134652905bd2d154\
-                               1fa9124303a41e95621029e03a901b85534ff1e92c43c74431f\
-                               7ce72046060fcf7a95c37e148f78c7725553aeffffffff01c0b\
-                               c973b000000001976a914b6f64f5bf3e38f25ead28817df7929\
-                               c06fe847ee88ac00000000"
+  "tx": {
+        "txid": '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
+         'hash': '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
+         "size": 223,
+         "vsize": 223,
+         "version": 1,
+         "locktime": 1088130,
+         "vin":
+             [ { txid: '79f8d0bc26605a9bc7dc59b2ce43c290947e33120fca6b3e946588086d26276f',
+                 vout: 1,
+                 scriptSig: [Object],
+                 sequence: 4294967294 } ],
+                 vout:
+             [ { value: 40000, n: 0, scriptPubKey: [Object] },
+                 { value: 249337401, n: 1, scriptPubKey: [Object] } ]",
 }
 ```
 
