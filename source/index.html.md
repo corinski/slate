@@ -17,7 +17,8 @@ This is the API documentation for Oracle
 
 ## Post a new order
 
-> inputs: userOrderDetailsObject(signed) and arbiterOrderDetailsObject(signed)
+> inputs: userOrderDetailsObject(signed),
+          arbiterOrderDetailsObject(signed)
 
 ```json
 [
@@ -25,7 +26,7 @@ This is the API documentation for Oracle
     "pubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
     "expiration": "1479161129742",
     "pair": "BTC_ETH",
-    "amountIn": "1",
+    "amountIn": "0.02",
     "rate": "0.02",
     "returnAddress": "1NvWJhWoMtXe16KLemyTq3ZMoyLipN8EKu",
     "withdrawalAddress": "0x81ca1263c188a0a1679f63eaef92e54cf8c7ccbe",
@@ -63,7 +64,7 @@ userOrderDetailsObject |
 arbiterOrderDetailsObject  |
 
 
-## Get transaction for when bitcoin client sees deposit
+## Get tx when bitcoin client sees deposit
 
 > input: ??
 
