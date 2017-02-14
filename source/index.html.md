@@ -41,12 +41,24 @@ This is the API documentation for Oracle
 ]
 ```
 
-> outputs:
+> successful outputs:
 
 ```json
 {
-    "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
-    "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE",
+    "success": true,
+    "response": {
+        "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+        "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+        }
+}
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
 }
 ```
 
@@ -56,7 +68,7 @@ User hits this endpoint.
 
 `POST '/api/v1/newOrder'`
 
-### Passed-in Parameters
+### URL Parameters
 
 Parameter | Description
 --------- | -----------
@@ -66,7 +78,7 @@ arbiterOrderDetailsObject  |
 
 ## Get tx when bitcoin client sees deposit
 
-> input: ??
+> input:
 
 ```json
 {
@@ -74,11 +86,21 @@ arbiterOrderDetailsObject  |
 }
 ```
 
-> outputs: ??
+> successful outputs:
 
 ```json
 {
+    "success": true,
     "??": "??"
+}
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
 }
 ```
 
@@ -105,30 +127,42 @@ Parameter | Description
 {
   "orderId": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
   "tx": {
-        "txid": '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
-         'hash': '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
+        "txid": "5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad",
+         "hash": "5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad",
          "size": 223,
          "vsize": 223,
          "version": 1,
          "locktime": 1088130,
          "vin":
-             [ { txid: '79f8d0bc26605a9bc7dc59b2ce43c290947e33120fca6b3e946588086d26276f',
-                 vout: 1,
-                 scriptSig: [Object],
-                 sequence: 4294967294 } ],
-                 vout:
-             [ { value: 40000, n: 0, scriptPubKey: [Object] },
-                 { value: 249337401, n: 1, scriptPubKey: [Object] } ]",
-  "inputs": "[c7d856f6-ceb8-4e23-aae0-9905e3036927, a7d856f6-ceb8-4e23-aae0-9905e3036927, b7d856f6-ceb8-4e23-aae0-9905e3036927]"
+             [ { "txid": "79f8d0bc26605a9bc7dc59b2ce43c290947e33120fca6b3e946588086d26276f",
+                 "vout": 1,
+                 "scriptSig": [Object],
+                 "sequence": 4294967294 } ],
+         "vout":
+             [ { "value": 40000, "n": 0, "scriptPubKey": [Object] },
+                 { "value": 249337401, "n": 1, "scriptPubKey": [Object] } ]",
+  "inputs": "["c7d856f6-ceb8-4e23-aae0-9905e3036927", "a7d856f6-ceb8-4e23-aae0-9905e3036927", "b7d856f6-ceb8-4e23-aae0-9905e3036927"]"
 }
 ```
 
-> outputs:
+> successful outputs:
 
 ```json
 {
-    "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
-    "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE",
+    "success": true,
+    "response": {
+        "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+        "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+    }
+}
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
 }
 ```
 
@@ -157,31 +191,42 @@ inputs | array of matched orders' orderIds
 {
   "orderId": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
   "tx": {
-        "txid": '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
-         'hash': '5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad',
+        "txid": "5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad",
+         "hash": "5154a0bac0a6688a522e442119d0c7c6f4fa44d1669960d81858ed76a8a0baad",
          "size": 223,
          "vsize": 223,
          "version": 1,
          "locktime": 1088130,
          "vin":
-             [ { txid: '79f8d0bc26605a9bc7dc59b2ce43c290947e33120fca6b3e946588086d26276f',
-                 vout: 1,
-                 scriptSig: [Object],
-                 sequence: 4294967294 } ],
-                 vout:
-             [ { value: 40000, n: 0, scriptPubKey: [Object] },
-                 { value: 249337401, n: 1, scriptPubKey: [Object] } ]",
+             [ { "txid": "79f8d0bc26605a9bc7dc59b2ce43c290947e33120fca6b3e946588086d26276f",
+                 "vout": 1,
+                 "scriptSig": [Object],
+                 "sequence": 4294967294 } ],
+         "vout":
+             [ { "value": 40000, "n": 0, "scriptPubKey": [Object] },
+                 { "value": 249337401, "n": 1, "scriptPubKey": [Object] } ]"
 }
 ```
 
-> outputs: signed tx
+>successful outputs: (signed tx)
 
 ```json
 {
-    "tx": "??"
+    "success": true,
+    "response": {
+        "tx": "??"
+    }
 }
 ```
 
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
 
 Arbiter/User sends this request for Oracle for co-sign request
 
