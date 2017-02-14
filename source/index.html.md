@@ -17,8 +17,8 @@ This is the API documentation for Oracle
 
 ## Post a new order
 
-> inputs: userOrderDetailsObject(signed),
-          arbiterOrderDetailsObject(signed)
+> inputs: userOrderDetailsObject(signed)
+            arbiterOrderDetailsObject(signed)
 
 ```json
 [
@@ -26,7 +26,7 @@ This is the API documentation for Oracle
     "pubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
     "expiration": "1479161129742",
     "pair": "BTC_ETH",
-    "amountIn": "0.02",
+    "amountIn": "1",
     "rate": "0.02",
     "returnAddress": "1NvWJhWoMtXe16KLemyTq3ZMoyLipN8EKu",
     "withdrawalAddress": "0x81ca1263c188a0a1679f63eaef92e54cf8c7ccbe",
@@ -42,20 +42,11 @@ This is the API documentation for Oracle
 ```
 
 > outputs:
-successful
+
 ```json
 {
-    "success": true,
     "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
     "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE",
-}
-```
-failed
-or
-```json
-{
-    "success": false,
-    "error": "??"
 }
 ```
 
@@ -132,7 +123,6 @@ Parameter | Description
 
 ```json
 {
-    "success": true,
     "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
     "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE",
 }
@@ -180,7 +170,6 @@ inputs | array of matched orders' orderIds
 
 ```json
 {
-    "success": true,
     "tx": "??"
 }
 ```
