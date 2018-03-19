@@ -11,6 +11,108 @@ includes:
 search: true
 ---
 
+# Arbiter APIs
+
+This is the API documentation for Arbiter
+
+
+## Get coins
+
+> successful outputs:
+
+```json
+[
+    "btc",
+    "ltc",
+    "eth"
+]
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+This endpoint retrieves a list of coins
+
+### HTTP Request
+
+`GET 'api/v1/coins'`
+
+
+
+## Get pairs
+
+> successful outputs:
+
+```json
+[
+    "BTC_LTC",
+    "LTC_BTC"
+]
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+This endpoint retrieves a list of coin pairs
+
+### HTTP Request
+
+`GET 'api/v1/pairs'`
+
+
+
+## Get markets
+
+> successful outputs:
+
+```json
+[
+    {
+        "id": 1,
+        "pair1": "BTC_LTC",
+        "pair2": "LTC_BTC",
+        "base_currency": "LTC",
+        "quote_currency": "BTC",
+        "base_min_size": "0.00000001",
+        "base_max_size": "21000000",
+        "quote_increment": "0.0001"
+    }
+]
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+This endpoint retrieves a list of markets
+
+### HTTP Request
+
+`GET 'api/v1/markets'`
+
+
+
+
+
+
+
 # Oracle APIs
 
 This is the API documentation for Oracle
