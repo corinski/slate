@@ -16,7 +16,104 @@ search: true
 This is the API documentation for Arbiter
 
 
-## Get coins
+
+
+
+
+## Get global info for a coin pair
+
+> inputs: coin pair
+
+```json
+"BTC_ETH"
+```
+
+> successful outputs:
+
+```json
+???
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`POST '/api/v1/globals/:pair'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+coin pair
+
+
+
+
+
+
+
+## Get last price for a coin pair
+
+> inputs:  coin pair
+
+
+```json
+"BTC_ETH"
+```
+
+> successful outputs:
+
+```json
+{
+    "success": true,
+    "response": {
+        price: 0.1
+        }
+}
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`GET '/api/v1/lastprice'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+coin pair | coin pair
+
+
+
+
+
+
+
+
+
+
+
+
+## Get a list of coins
 
 > successful outputs:
 
@@ -109,6 +206,298 @@ This endpoint retrieves a list of markets
 
 
 
+## Get the orderbook of a pair
+
+> inputs:
+
+```
+"BTC_LTC"
+```
+
+> successful outputs:
+
+```json
+???
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+This endpoint retrieves the orderbook of a pair
+
+### HTTP Request
+
+`GET 'api/v1/orderbook/:pair'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+coin pair | a pair of coin
+
+
+
+
+## Get the order list of an account
+
+> inputs:
+
+```json
+"xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp"
+```
+
+> successful outputs:
+
+```json
+[
+  {
+    "orderID": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
+    "arbiterPubKey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+    "encDerivationPath": "??",
+    "multiSigAddr": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+  }
+]
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`POST '/api/v1/orderlist/:account'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+account | user's BTC pubkey or address ??
+
+
+
+
+
+## Get the latest trade info on a coin pair
+
+> inputs:
+
+```json
+"BTC_LTC"
+```
+
+> successful outputs:
+
+```json
+???
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`POST '/api/v1/getLatestPairTrades/:pair'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+coin pair | coin pair
+
+
+
+
+
+
+## Get the order info for an orderId
+
+> inputs:
+
+```json
+"orderId"
+```
+
+> successful outputs:
+
+```json
+???
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`POST '/api/v1/order/:orderId'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+order id | order id
+
+
+
+
+
+## Post a new limit order
+
+> inputs: userOrderDetailsObject(signed)
+            arbiterOrderDetailsObject(signed)
+
+```json
+???
+[
+  {
+    "pubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+    "expiration": "1479161129742",
+    "pair": "BTC_ETH",
+    "amountIn": "1",
+    "rate": "0.02",
+    "returnAddress": "1NvWJhWoMtXe16KLemyTq3ZMoyLipN8EKu",
+    "withdrawalAddress": "0x81ca1263c188a0a1679f63eaef92e54cf8c7ccbe",
+    "signature": ""
+  },
+  {
+    "orderID": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
+    "arbiterPubKey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+    "encDerivationPath": "??",
+    "multiSigAddr": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+  }
+]
+```
+
+> successful outputs:
+
+```json
+{
+    "success": true,
+    "response": {
+        "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+        "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+        }
+}
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`POST '/api/v1/limitorder'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+???
+
+
+
+
+
+
+## Post a cancel order
+
+> inputs: userOrderDetailsObject(signed)
+            arbiterOrderDetailsObject(signed)
+
+```json
+???
+[
+  {
+    "pubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+    "expiration": "1479161129742",
+    "pair": "BTC_ETH",
+    "amountIn": "1",
+    "rate": "0.02",
+    "returnAddress": "1NvWJhWoMtXe16KLemyTq3ZMoyLipN8EKu",
+    "withdrawalAddress": "0x81ca1263c188a0a1679f63eaef92e54cf8c7ccbe",
+    "signature": ""
+  },
+  {
+    "orderID": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
+    "arbiterPubKey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+    "encDerivationPath": "??",
+    "multiSigAddr": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+  }
+]
+```
+
+> successful outputs:
+
+```json
+{
+    "success": true,
+    "response": {
+        "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
+        "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
+        }
+}
+```
+
+> failed outputs:
+
+```json
+{
+    "success": false,
+    "error": e
+}
+```
+
+User hits this endpoint.
+
+### HTTP Request
+
+`POST '/api/v1/cancel'`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+???
+
+
+
+
+
 
 
 
@@ -176,6 +565,10 @@ Parameter | Description
 --------- | -----------
 userOrderDetailsObject |
 arbiterOrderDetailsObject  |
+
+
+
+
 
 
 ## Get tx when bitcoin client sees deposit
