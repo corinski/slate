@@ -22,7 +22,7 @@ This is the API documentation for Arbiter
 
 ## Get global info for a coin pair
 
-> inputs: coin pair
+> inputs:
 
 ```json
 "BTC_ETH"
@@ -53,7 +53,7 @@ User hits this endpoint.
 
 Parameter | Description
 --------- | -----------
-coin pair
+coin pair | coin pair
 
 
 
@@ -63,8 +63,7 @@ coin pair
 
 ## Get last price for a coin pair
 
-> inputs:  coin pair
-
+> inputs:
 
 ```json
 "BTC_ETH"
@@ -115,6 +114,12 @@ coin pair | coin pair
 
 ## Get a list of coins
 
+> input:
+
+```
+none
+```
+
 > successful outputs:
 
 ```json
@@ -141,8 +146,25 @@ This endpoint retrieves a list of coins
 `GET 'api/v1/coins'`
 
 
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+none
+
+
+
+
+
+
 
 ## Get pairs
+
+> input:
+
+```
+none
+```
 
 > successful outputs:
 
@@ -168,9 +190,26 @@ This endpoint retrieves a list of coin pairs
 
 `GET 'api/v1/pairs'`
 
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+none
+
+
+
+
+
+
 
 
 ## Get markets
+
+> input:
+
+```
+none
+```
 
 > successful outputs:
 
@@ -204,20 +243,54 @@ This endpoint retrieves a list of markets
 
 `GET 'api/v1/markets'`
 
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+none
+
+
+
+
 
 
 ## Get the orderbook of a pair
 
 > inputs:
 
-```
+```json
 "BTC_LTC"
 ```
 
 > successful outputs:
 
 ```json
-???
+{
+    "bids": [
+       {
+            "quantity": 3.59944722,
+            "price": 0.01889002,
+            "orders": [
+                {
+                    "id": "211d44ee-772a-4919-9239-cf63e8b35671",
+                    "qty": 3.59944722
+                }
+            ]
+       }
+    ],
+    "offers": [
+        {
+            "quantity": 2.63090184,
+            "price": 0.01900489,
+            "orders": [
+                {
+                    "id": "813d00dd-f89a-41dd-96e5-565e1b979b9c",
+                    "qty": 2.63090184
+                }
+            ]
+        }
+    ]
+}
 ```
 
 > failed outputs:
@@ -458,41 +531,17 @@ order object | order object
 
 ## Post a cancel order
 
-> inputs: userOrderDetailsObject(signed)
-            arbiterOrderDetailsObject(signed)
+> inputs:
+
 
 ```json
-???
-[
-  {
-    "pubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
-    "expiration": "1479161129742",
-    "pair": "BTC_ETH",
-    "amountIn": "1",
-    "rate": "0.02",
-    "returnAddress": "1NvWJhWoMtXe16KLemyTq3ZMoyLipN8EKu",
-    "withdrawalAddress": "0x81ca1263c188a0a1679f63eaef92e54cf8c7ccbe",
-    "signature": ""
-  },
-  {
-    "orderID": "c7d856f6-ceb8-4e23-aae0-9905e3036927",
-    "arbiterPubKey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
-    "encDerivationPath": "??",
-    "multiSigAddr": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
-  }
-]
+28136c90-835e-4769-b94e-8946387fa091
 ```
 
 > successful outputs:
 
 ```json
-{
-    "success": true,
-    "response": {
-        "oraclePubkey": "xpub661MyMwAqRbcGEuCBm3UEh4bc6r3iVRhcHsg6hmphFYM9Gg5kFLAZSMCjVpWWDug6hjU1MMs2ZZr6xuN6eUXc88FixnQXm5y7bgJCi3vTzp",
-        "oracleMultisigAddress": "2MundrzJqMjj6dwrJXiarbnXQbMPt1iWfaE"
-        }
-}
+???
 ```
 
 > failed outputs:
@@ -514,7 +563,7 @@ User hits this endpoint.
 
 Parameter | Description
 --------- | -----------
-???
+order id | order id
 
 
 
